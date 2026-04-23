@@ -9,7 +9,11 @@ else:
     try:
         rutaarchivo = sys.argv[1]
         print("Command-line arguments:")
-        for arg in sys.argv[1]: 
+        for arg in sys.argv[1:]: 
             print(arg)
+        tasks = read_todo_file(rutaarchivo)
+        print("Tasks:")
+        for task in tasks:
+            print(task)
     except IndexError:
         print('Insufficient arguments provided!')
