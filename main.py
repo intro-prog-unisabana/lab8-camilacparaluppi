@@ -12,7 +12,7 @@ else:
         for arg in sys.argv[1:]: 
             print(arg)
         tasks = read_todo_file(rutaarchivo)
-        print("Tasks:")
+        print("\nTasks:")
         for task in tasks:
             print(task)
     except IndexError:
