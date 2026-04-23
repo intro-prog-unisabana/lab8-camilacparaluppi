@@ -9,9 +9,11 @@ if len(sys.argv) != 3:
     print("Error: Invalid input! Enter numeric values only.")
     sys.exit()
 try:
-    total_load = sys.argv[1]
-    num_supports = sys.argv[2]
+    total_load = float(sys.argv[1])
+    num_supports = float(sys.argv[2])
     load_per_support = total_load / num_supports
+    print(f"Load per support point: {load_per_support:.2f} N")
 except ZeroDivisionError:
     print("Cannot divide by zero! Supports must be greater than zero.")
-print(f"Load per support point: {load_per_support} N")
+except ValueError:
+    print("Error: Invalid input! Enter numeric values only.")
