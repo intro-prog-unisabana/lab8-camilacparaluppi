@@ -5,12 +5,12 @@ Implementa una CLI que calcule carga por punto de soporte.
 
 # TODO: Implementar según README.md
 import sys
-if len(sys.argv) != 4:
+if len(sys.argv) != 3:
     print("Error: Invalid input! Enter numeric values only.")
     sys.exit()
-total_load = sys.argv[1]
-num_supports = sys.argv[2]
 try:
+    total_load = sys.argv[1]
+    num_supports = sys.argv[2]
     load_per_support = total_load / num_supports
 except ZeroDivisionError:
     print("Cannot divide by zero! Supports must be greater than zero.")
