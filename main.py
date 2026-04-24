@@ -2,7 +2,7 @@
 
 # TODO: Implementar CLI según README.md
 import sys
-from todo_manager import read_todo_file
+from todo_manager import read_todo_file, write_todo_file
 if len(sys.argv) < 3:
     print("Insufficient arguments provided!")
 else:
@@ -13,5 +13,13 @@ else:
         print("Tasks:")
         for i, task in enumerate(tasks, start=1):
             print(f"{i}. {task}")
+    elif command == "add":
+        if len(sys.argv) < 4:
+            raise IndexError('Task description required for "add".')
+        task = sys.argv[3]
+        tasks = read_todo_file(file_path)
+        tasks.append(task)
+        write_todo_file(file_path, tasks)
+        print(f'Task "{task}" added.')
     else:
-        print("Command not found!")
+        raise ValueError("Command not found!")
