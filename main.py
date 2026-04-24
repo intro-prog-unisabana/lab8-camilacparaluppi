@@ -19,7 +19,7 @@ Examples:
   python main.py tasks.txt add "Call mom" remove "Take out trash" view
 """)
 elif len(sys.argv) < 3:
-    print("Insufficient arguments provided!")
+    pass
 else:
     file_path = sys.argv[1]
     tasks = read_todo_file(file_path)
