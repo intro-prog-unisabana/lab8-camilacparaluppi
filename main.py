@@ -4,16 +4,20 @@
 import sys
 from todo_manager import read_todo_file
 if len(sys.argv) < 2:
-    print("Insufficient arguments provided!")
+    print("Usage: python main.py <file_path> <command> [arguments]...")
 elif len(sys.argv) == 2:
     pass
 else:
     file_path = sys.argv[1]
     command = sys.argv[2]
     if command == "view":
-        tasks = read_todo_file(file_path)
+        try:
+            tasks = read_todo_file(file_path)
+        except FileNotFoundError:
+            open(file_path, "w").close()
+            tasks = []
         print("Tasks:")
         for task in tasks:
             print(task)
     else:
-        print("Command not found!")
+        raise ValueError("Command not found!")
