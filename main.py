@@ -3,21 +3,15 @@
 # TODO: Implementar CLI según README.md
 import sys
 from todo_manager import read_todo_file
-if len(sys.argv) < 2:
-    print("Usage: python main.py <file_path> <command> [arguments]...")
-elif len(sys.argv) == 2:
-    pass
+if len(sys.argv) < 3:
+    print("Insufficient arguments provided!")
 else:
     file_path = sys.argv[1]
     command = sys.argv[2]
     if command == "view":
-        try:
-            tasks = read_todo_file(file_path)
-        except FileNotFoundError:
-            open(file_path, "w").close()
-            tasks = []
+        tasks = read_todo_file(file_path)
         print("Tasks:")
-        for task in tasks:
-            print(task)
+        for i, task in enumerate(tasks, start=1):
+            print(f"{i}. {task}")
     else:
-        raise ValueError("Command not found!")
+        print("Command not found!")
