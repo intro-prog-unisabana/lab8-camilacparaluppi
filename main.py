@@ -5,6 +5,7 @@ import sys
 from todo_manager import read_todo_file
 if len(sys.argv) < 2: 
     print("Insufficient arguments provided!")
+    print("Usage: python main.py <file_path> <command> [arguments]...")
 else:
     file_path = sys.argv[1]
     if len(sys.argv) > 2: 
